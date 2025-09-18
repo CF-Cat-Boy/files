@@ -14,11 +14,29 @@ def game():
             self.score = 0
             self.body = []
             self.dir = 3 # possible vals are: 1, 3, 5, 7
-        def move(self):
-            if self.dir > 3:
-                self.rect.y += (self.dir-6)*32
+        def move(self,dirr):
+            dirrr = self.dir
+            if dirr == 5:
+                if self.dir != 7:
+                    dirrr = 5
+#                    print("we are moving up")
+            if dirr == 1:
+                if self.dir != 3:
+                    dirrr = 1
+ #                   print("we are moving left")
+            if dirr == 7:
+                if self.dir != 5:
+                    dirrr = 7
+  #                  print("we are moving down")
+            if dirr == 3:
+                if self.dir != 1:
+                    dirrr = 3
+   #                 print("we are moving right")
+            if dirrr > 3:
+                self.rect.y += (dirrr-6)*32
             else:
-                self.rect.x += (self.dir-2)*32
+                self.rect.x += (dirrr-2)*32
+            self.dir = dirrr
             for i in self.body:
                 if self.rect.colliderect(i.rect) and not i.id == 0:
                     gameover(self.score)
@@ -63,6 +81,8 @@ def game():
     head = Head()
     apple = Apple()
     prevdirs = []
+    queue = [3]
+    currentdir = 3
 
     quitt = False
     running = True
@@ -74,35 +94,39 @@ def game():
 
         for e in pygame.event.get():
             if e.type == pygame.QUIT:
+                quitt = True
                 running = False
         
         key = pygame.key.get_pressed()
         if key[pygame.K_w] or key[pygame.K_UP]:
-            if head.dir <= 3:
-                head.dir = 5
+                queue.append(5)
         elif key[pygame.K_a] or key[pygame.K_LEFT]:
-            if head.dir > 3:
-                head.dir = 1
+                queue.append(1)
         elif key[pygame.K_s] or key[pygame.K_DOWN]:
-            if head.dir <= 3:
-                head.dir = 7
+                queue.append(7)
         elif key[pygame.K_d] or key[pygame.K_RIGHT]:
-            if head.dir > 3:
-                head.dir = 3
+                queue.append(3)
 
         if key[pygame.K_ESCAPE]:
             quitt = True
             running = False
+
+        if len(queue)!=0 and len(queue)!=1:
+            if queue[0]==queue[1]:
+                queue.pop(0)
 
         if head.rect.colliderect(apple.rect):
             head.eat()
             apple.ate()
         
         if h%15==0:
+            if queue != []:
+                currentdir = queue[0]
+                queue.pop(0)
             prevdirs.append((head.rect.x, head.rect.y))
             if prevdirs.__len__() > head.body.__len__():
                 prevdirs.pop(0)
-            head.move()
+            head.move(currentdir)
             for i in range(head.body.__len__()):
                 head.body[i].move(prevdirs[i])
 
