@@ -1,5 +1,6 @@
 @echo off
 :s
-chrome.exe https://www.google.com/search?q=spongebob&oq=sponge&gs_lcrp=EgZjaHJvbWUqDQgAEAAY4wIYsQMYgAQyDQgAEAAY4wIYsQMYgAQyCggBEC4YsQMYgAQyCggCEC4YsQMYgAQyDQgDEC4Y1AIYsQMYgAQyDQgEEAAYgwEYsQMYgAQyCggFEC4YsQMYgAQyBwgGEAAYgAQyCggHEAAYsQMYgAQyBwgIEAAYjwLSAQgyNzMyajBq
+https://www.google.com/search?q=spongebob&oq=sponge&gs_lcrp=EgZjaHJvbWUqDQgAEAAY4wIYsQMYgAQyDQgAEAAY4wIYsQMYgAQyCggBEC4YsQMYgAQyCggCEC4YsQMYgAQyDQgDEC4Y1AIYsQMYgAQyDQgEEAAYgwEYsQMYgAQyCggFEC4YsQMYgAQyBwgGEAAYgAQyCggHEAAYsQMYgAQyBwgIEAAYjwLSAQgyNzMyajBq
 start "spongebob" spongebob.bat
+
 goto s
