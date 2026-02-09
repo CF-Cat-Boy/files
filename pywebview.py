@@ -1,6 +1,8 @@
 import webview
 
 def thing():
+    for i in range(100):
+        pass
     while True:
         if not wind in webview.windows:
             sponge.destroy()
@@ -19,5 +21,6 @@ sponge = webview.create_window("","http://localhost:8888")
 sponge.zoomable = True
 sponge.on_top = True
 sponge.frameless = True
+
 
 webview.start(func=thing)
