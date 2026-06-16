@@ -1,6 +1,5 @@
 @echo off
 :s
-https://www.google.com/search?q=spongebob&oq=sponge&gs_lcrp=EgZjaHJvbWUqDQgAEAAY4wIYsQMYgAQyDQgAEAAY4wIYsQMYgAQyCggBEC4YsQMYgAQyCggCEC4YsQMYgAQyDQgDEC4Y1AIYsQMYgAQyDQgEEAAYgwEYsQMYgAQyCggFEC4YsQMYgAQyBwgGEAAYgAQyCggHEAAYsQMYgAQyBwgIEAAYjwLSAQgyNzMyajBq
+start https://www.google.com/search?q=spongebob
 start "spongebob" spongebob.bat
-
 goto s
