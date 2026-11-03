@@ -19,3 +19,4 @@ def do():
 encrypt = False
 text = h'''
 print(do())
+input("press enter to exit")
